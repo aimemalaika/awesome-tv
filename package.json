@@ -1,0 +1,44 @@
+{
+  "name": "awesome-tv",
+  "version": "1.0.0",
+  "description": "Awesome TV is the First and Original streaming entertainment network for Global Africa from United States of America (USA).",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve --open",
+    "test": "jest --coverage",
+    "build": "webpack",
+    "check-linters": "npx lhci autorun --upload.target=temporary-public-storage --collect.staticDistDir=. && npx hint . && npx stylelint **/*.{css,scss} && npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimemalaika/awesome-tv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aimemalaika/awesome-tv/issues"
+  },
+  "homepage": "https://github.com/aimemalaika/awesome-tv#readme",
+  "devDependencies": {
+    "@lhci/cli": "^0.8.2",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.4.6",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.4",
+    "hint": "^6.1.9",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^27.4.7",
+    "style-loader": "^3.3.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
+  }
+}
