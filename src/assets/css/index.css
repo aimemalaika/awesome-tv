@@ -1,6 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,500;1,700;1,900&display=swap');
 
+:root {
+  --dark-bg: #090909;
+  --light-bg: #111;
+  --white-color: #bbb;
+  --blue-color: #00acc1;
+}
+
 * {
-  font-family: 'Poppins';
-  font-size: 100;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app-header {
+  background-color: var(--dark-bg);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+}
+
+.app-header .logo {
+  width: 5%;
+}
+
+.app-header .logo img {
+  height: 50px;
+  margin: auto;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: end;
+}
+
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--white-color);
+}
+
+.navigation ul li a:hover {
+  color: var(--blue-color);
 }
