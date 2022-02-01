@@ -2,7 +2,7 @@
 # LEADBOARD APP
 > Awesome TV is the First and Original streaming entertainment network for Global Africa from United States of America (USA).
 
-![screenshot](./src/assets/images/Home.png)
+![image](https://user-images.githubusercontent.com/61976324/151960638-f62e63be-3793-4659-8158-c91148b218ba.png)
 ## Built With
 - HTML & CSS & JavaScript
 - Html, Css & JavaScript linters
