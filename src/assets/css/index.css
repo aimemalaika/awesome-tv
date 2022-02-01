@@ -62,4 +62,12 @@ body {
 
 .navigation ul li a:hover {
   color: var(--blue-color);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+footer {
+  display: block;
+  border: 1px solid;
+  padding: 2%;
+  background: #ddd;
 }
