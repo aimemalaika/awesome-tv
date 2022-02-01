@@ -13,7 +13,12 @@ class Show {
           this.populate(element);
         });
       }
+      this.countMovies(result.length);
     }
+  }
+
+  static countMovies = (count) => {
+    document.querySelector('.movies-counter').textContent = count;
   }
 
   static populate = (movie) => {
