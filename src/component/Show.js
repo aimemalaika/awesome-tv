@@ -25,6 +25,12 @@ class Show {
     poster.classList.add('poster');
     const posterImager = new Image();
     posterImager.src = movie.image.medium;
+    const commentBtn = document.createElement('button');
+    commentBtn.innerText = 'Comments';
+    commentBtn.classList.add('overlapButton-comment');
+    const reservationBtn = document.createElement('button');
+    reservationBtn.innerText = 'reservations';
+    reservationBtn.classList.add('overlapButton-reservation');
     poster.append(posterImager);
     movieCadre.append(poster);
     const movieName = document.createElement('h3');
@@ -37,7 +43,9 @@ class Show {
     movieCadre.append(movieName);
     const smalInfo = document.createElement('p');
     smalInfo.classList.add('meta');
-    smalInfo.innerHTML = `${new Date(movie.premiered).getFullYear().toString()}<i class="dot"></i>${movie.runtime} min<i class="dot"></i> <i class="type">Show</i>`;
+    smalInfo.innerHTML = `${new Date(movie.premiered).getFullYear().toString()}<i class="dot"></i>${movie.runtime} min <button class="like-btn"><i class="fa fa-heart-o"></i> 0 likes</button>`;
+    movieCadre.append(commentBtn);
+    movieCadre.append(reservationBtn);
     movieCadre.append(smalInfo);
     this.container.append(movieCadre);
   }
