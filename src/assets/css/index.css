@@ -4,36 +4,65 @@
   --dark-bg: #090909;
   --light-bg: #111;
   --white-color: #fff;
-  --blue-color: #00acc1;
+  --blue-color: #57d2eb;
 }
 
 * {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  box-sizing: border-box;
+
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--light-bg);
 }
 
 .app-header {
   background-color: var(--dark-bg);
+  height: 70px;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 70%;
+  width: 95%;
   margin: auto;
+  height: 100%;
+}
+
+.movie-list {
+  width: 95%;
+  margin: auto;
+}
+
+.movie-list .section-title {
+  color: var(--white-color);
+  font-weight: 400;
+  font-size: 2em;
+}
+
+.movie-list .section-title::before {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 4%;
+  top: 17%;
+  background: #343a40;
 }
 
 .app-header .logo {
   width: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0;
 }
 
 .app-header .logo img {
-  height: 50px;
+  height: 35px;
   margin: auto;
 }
 
@@ -51,6 +80,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   width: 30%;
+  align-items: center;
 }
 
 .navigation ul li a {
@@ -95,6 +125,157 @@ body {
 footer {
   display: block;
   border: 1px solid;
-  padding: 2%;
-  background: #ddd;
+  background: var(--dark-bg);
+}
+
+footer p {
+  width: 95%;
+  margin: auto;
+  color: var(--white-color);
+  padding: 2% 0;
+}
+
+.movies-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  margin-top: 45px;
+}
+
+.movies-row .item {
+  position: relative;
+}
+
+.movies-row .item .poster {
+  width: 100%;
+  padding-bottom: 145%;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+  background: #212529;
+}
+
+.movies-row .item .poster::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.movies-row .item:hover .poster::after {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.movies-row .item .poster img {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+}
+
+.movies-row .item .poster img[src] {
+  visibility: visible;
+}
+
+.movies-row .item h3 {
+  font-size: 1em;
+  font-weight: 500;
+  display: grid;
+}
+
+.movies-row .item .title {
+  color: var(--white-color);
+  font-size: 1em;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.movies-row .item .meta {
+  font-size: 0.9em !important;
+  font-weight: 300;
+  height: 50px;
+  display: block;
+  overflow: hidden;
+  color: #959595;
+}
+
+.movies-row .item .meta .dot {
+  width: 3px;
+  height: 3px;
+  vertical-align: 2px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #d5d5d5;
+  content: "";
+  margin: 0 5px;
+}
+
+.movies-row .item .meta .like-btn {
+  font-style: normal;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-size: 1em;
+  float: right;
+  border: none;
+  background-color: transparent;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.movies-row .item .meta .like-btn i {
+  color: red;
+}
+
+.movies-counter {
+  text-align: center;
+  color: var(--white-color);
+  background-color: red;
+  font-weight: 500;
+  padding: 4px 1px;
+  border-radius: 50%;
+}
+
+.overlapButton-comment,
+.overlapButton-reservation {
+  position: absolute;
+  top: 28%;
+  z-index: 10;
+  width: 70%;
+  left: 15%;
+  border: none;
+  background-color: var(--light-bg);
+  color: var(--white-color);
+  font-size: 1em;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 5px 0;
+  display: none;
+  border-radius: 5px;
+}
+
+.overlapButton-reservation {
+  top: 40%;
+}
+
+.overlapButton-comment:hover,
+.overlapButton-reservation:hover {
+  background-color: var(--dark-bg);
+  color: var(--blue-color);
+}
+
+.movies-row .item:hover .overlapButton-comment,
+.movies-row .item:hover .overlapButton-reservation {
+  display: block;
 }
