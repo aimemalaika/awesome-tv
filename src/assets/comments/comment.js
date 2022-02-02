@@ -25,5 +25,3 @@ async function postComment() {
 }
 
 export default postComment;
- 
-
