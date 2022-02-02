@@ -1,3 +1,5 @@
+import Likes from './Likes.js';
+
 class Show {
   static base = 'https://api.tvmaze.com/shows';
 
@@ -48,7 +50,23 @@ class Show {
     movieCadre.append(movieName);
     const smalInfo = document.createElement('p');
     smalInfo.classList.add('meta');
-    smalInfo.innerHTML = `${new Date(movie.premiered).getFullYear().toString()}<i class="dot"></i>${movie.runtime} min <button class="like-btn"><i class="fa fa-heart-o"></i> 0 likes</button>`;
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('like-btn');
+    likeButton.setAttribute('data-id', movie.id);
+    if (Likes.setLiked().includes(movie.id)) {
+      likeButton.innerHTML = '<i class="fa fa-heart"></i> 0 likes';
+    } else {
+      likeButton.innerHTML = '<i class="fa fa-heart-o"></i> 0 likes';
+    }
+    likeButton.addEventListener('click', (e) => {
+      if (!Likes.setLiked().includes(movie.id)) {
+        const itemId = e.target.getAttribute('data-id');
+        const like = new Likes(itemId);
+        Likes.postLike(like);
+      }
+    });
+    smalInfo.innerHTML = `${new Date(movie.premiered).getFullYear().toString()}<i class="dot"></i>${movie.runtime} min `;
+    smalInfo.append(likeButton);
     movieCadre.append(commentBtn);
     movieCadre.append(reservationBtn);
     movieCadre.append(smalInfo);
