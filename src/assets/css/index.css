@@ -242,8 +242,9 @@ footer p {
   color: var(--white-color);
   background-color: red;
   font-weight: 500;
-  padding: 4px 1px;
+  padding: 6px 4px;
   border-radius: 50%;
+  font-size: 13px;
 }
 
 .overlapButton-comment,
