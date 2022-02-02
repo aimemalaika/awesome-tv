@@ -4,10 +4,10 @@ const submitBtn = document.querySelector('.submit-btn');
 
 async function postComment() {
   submitBtn.addEventListener('click', (e) => {
-  e.preventDefault()
+    e.preventDefault();
 
-  const name = document.getElementById('name');
-  const message = document.getElementById('message');
+    const name = document.getElementById('name');
+    const message = document.getElementById('message');
     // fetch post request
     fetch(url, {
       method: 'POST',
@@ -20,7 +20,7 @@ async function postComment() {
         'content-type': 'application/json',
       },
     })
-    .then((response) => response.json());
+      .then((response) => response.json());
   });
 }
 
