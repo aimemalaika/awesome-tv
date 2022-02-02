@@ -93,6 +93,34 @@ body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
+.commment-container {
+  box-sizing: border-box;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment .comment-header {
+  text-align: center;
+  font-size: 30px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form .name {
+  padding: 5px;
+  margin: 2% 3% 2% 3%;
+  width: fit-content;
+}
+
+.comment-form .message {
+  margin: 0 3% 3% 3%;
+  width: 30%;
+}
+
 footer {
   display: block;
   border: 1px solid;

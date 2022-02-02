@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>Movies List</title>
   <script src="https://use.fontawesome.com/75d401af0c.js"></script>
 </head>
+
 <body>
   <header class="app-header">
     <div class="container">
@@ -20,6 +22,16 @@
       </nav>
     </div>
   </header>
+
+  <div id="comment" class="comment">
+    <h2 class="comment-header">Add comment</h2>
+    <div class="comment-form">
+      <input type="text" id="name" class="name" placeholder="your name">
+      <textarea name="message" id="message" class="message" cols="10" rows="10" placeholder="your insights"></textarea>
+      <button type="button" class="submit-btn">comment</button>
+    </div>
+  </div>
+
   <section class="movie-list">
     <h1 class="section-title">Movies</h1>
     <div class="movies-row"></div>
@@ -30,4 +42,5 @@
     </p>
   </footer>
 </body>
+
 </html>
