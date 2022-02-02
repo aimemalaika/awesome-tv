@@ -34,8 +34,10 @@ class Show {
     posterImager.src = movie.image.medium;
     const commentBtn = document.createElement('button');
     commentBtn.innerText = 'Comments';
+    commentBtn.setAttribute('data-comment-item-id', movie.id);
     commentBtn.classList.add('overlapButton-comment');
     const reservationBtn = document.createElement('button');
+    reservationBtn.setAttribute('data-reservation-item-id', movie.id);
     reservationBtn.innerText = 'reservations';
     reservationBtn.classList.add('overlapButton-reservation');
     poster.append(posterImager);
