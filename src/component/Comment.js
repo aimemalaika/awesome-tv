@@ -24,5 +24,17 @@ class Comment {
     }
     return 'Failed';
   }
+
+  static getComment = async (item) => {
+    if (navigator.onLine && item) {
+      const request = await fetch(`${this.base}/${this.appId}/comments?item_id=${item}`, { method: 'GET' });
+      const result = await request.json();
+      if (request.status === 400) {
+        return [];
+      }
+      return result;
+    }
+    return 0;
+  }
 }
 export default Comment;

@@ -14,6 +14,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: var(--white-color);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -100,6 +105,12 @@ body {
   height: 100%;
   background-color: var(--transparent-dark-bg);
   top: 0;
+  z-index: 100;
+  overflow-y: scroll;
+}
+
+.hidden {
+  display: none;
 }
 
 .modal-content {
@@ -113,20 +124,86 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  border-bottom: 1px solid var(--white-color);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: var(--white-color);
+  font-size: 15px;
+  border-bottom: 1px solid var(--white-color);
+}
+
+.comments-list {
+  border-bottom: 1px solid var(--white-color);
 }
 
 .close-button {
   font-size: 20px;
-  font-weight: bold;
   font-weight: 500;
   background-color: transparent;
   border: none;
   color: rgba(255, 0, 0, 0.472);
   cursor: pointer;
+  padding-bottom: 10px;
 }
 
 .close-button:hover {
   color: red;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.description-data {
+  padding: 0 20px;
+}
+
+.movie-name-title {
+  margin: 0;
+}
+
+.underImage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.underImage i {
+  color: red;
+}
+
+.modal-footer .comment {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.modal-footer .comment .comment-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-footer .comment .comment-form input,
+.modal-footer .comment .comment-form textarea {
+  display: block;
+  padding: .375rem .75rem;
+  font-size: 1.2rem;
+  line-height: 2;
+  font-weight: 300;
+  color: var(#000);
+  background-color: var(--white-color);
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  ;
+  border-radius: .25rem;
+  margin-bottom: 20px;
 }
 
 footer {
@@ -256,7 +333,8 @@ footer p {
 }
 
 .overlapButton-comment,
-.overlapButton-reservation {
+.overlapButton-reservation,
+.submit-comment-btn {
   position: absolute;
   top: 28%;
   z-index: 10;
@@ -278,7 +356,8 @@ footer p {
 }
 
 .overlapButton-comment:hover,
-.overlapButton-reservation:hover {
+.overlapButton-reservation:hover,
+.submit-comment-btn:hover {
   background-color: var(--dark-bg);
   color: var(--blue-color);
 }
@@ -303,4 +382,52 @@ footer p {
   to {
     transform: rotate(360deg);
   }
+}
+
+.submit-comment-btn {
+  position: inherit;
+  display: inherit;
+  width: 100%;
+  text-align: center;
+  background-color: var(--dark-bg);
+  border: 1px solid #f0f8ff2e;
+  padding-left: 40%;
+}
+
+.comment-header {
+  color: var(--white-color);
+}
+
+#comments-data {
+  padding: 0;
+  list-style-type: none;
+}
+
+.data-items {
+  display: grid;
+  grid-template-columns: 5% 90%;
+  gap: 15px;
+  color: var(--white-color);
+  border: 1px solid #242424;
+  border-radius: 4px;
+  margin-top: 7px;
+  padding: 5px;
+}
+
+.user-prefix {
+  color: var(--dark-bg);
+  background-color: var(--white-color);
+  font-size: 2em;
+  text-align: center;
+  font-weight: 900;
+  border-radius: 52%;
+  padding: 0px 10px;
+  margin: auto auto auto 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.time-posted {
+  text-align: right;
 }
