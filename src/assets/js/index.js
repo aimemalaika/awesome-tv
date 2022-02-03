@@ -2,11 +2,11 @@ import Show from '../../component/Show.js';
 import LogoImage from '../images/logo.png';
 import '../css/index.css';
 
-(() => {
+(async () => {
   const logo = new Image();
   logo.src = LogoImage;
   document.querySelector('.logo').append(logo);
-  Show.getMovies();
+  await Show.getMovies();
 })();
 
 document.querySelector('.close-button').addEventListener('click', () => {
