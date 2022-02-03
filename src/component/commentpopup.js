@@ -1,6 +1,6 @@
 const box = document.querySelector('#box');
 
-const commentPop = () => {
+const commentPop = (commentObj) => {
   const article = document.createElement('article');
   const articleContent = `
     <div id="parentModalComment" class="parentModalcomment">
@@ -11,7 +11,7 @@ const commentPop = () => {
       <div class="displayComment">
         <h2 class="comment-header">Comments</h2>
         <ul class="commentList">
-          <li><p>01/02/2020</p><p>Alex</p><p>I'll love to buy it</p></li>
+          <li><p>${commentObj}</p><p>${commentObj}</p><p>${commentObj}</p></li>
           <li><p>01/02/2020</p><p>Alex</p><p>I'll love to buy it</p></li>
         </ul> 
       </div>
@@ -35,3 +35,9 @@ const commentPop = () => {
 };
 
 commentPop();
+
+const btnCommentPop = document.createElement('button');
+btnCommentPop.textContent = 'comments';
+btnCommentPop.addEventListener('click', () => {
+  commentPop();
+})
