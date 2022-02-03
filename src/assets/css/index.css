@@ -9,7 +9,7 @@
 
 * {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
-  font-weight: 100;
+  /* font-weight: 100; */
   box-sizing: border-box;
 }
 
@@ -93,6 +93,49 @@ body {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
+#parentModalComment {
+  position: fixed;
+  z-index: 2;
+  background: white;
+  font-weight: normal;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 73%;
+  margin: 0 13%;
+  overflow-y: auto;
+}
+
+.videoName {
+  font-size: 40px;
+  margin: 5% 0;
+}
+
+#closeBtn {
+  position: absolute;
+  right: 3%;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.comment-header {
+  font-size: 30px;
+}
+
+.commentList {
+  list-style: none;
+}
+
 .commment-container {
   box-sizing: border-box;
   padding: 5%;
@@ -108,17 +151,25 @@ body {
 .comment-form {
   display: flex;
   flex-direction: column;
+  margin: 0 3%
 }
 
 .comment-form .name {
   padding: 5px;
-  margin: 2% 3% 2% 3%;
+  margin: 2% 0;
   width: fit-content;
 }
 
 .comment-form .message {
-  margin: 0 3% 3% 3%;
-  width: 30%;
+  margin: 2% 0;
+  width: 50%;
+}
+
+.submit-btn {
+  width: 14%;
+  box-sizing: border-box;
+  padding: 2%;
+  margin: 1% 0;
 }
 
 footer {
