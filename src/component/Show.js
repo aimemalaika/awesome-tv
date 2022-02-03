@@ -24,7 +24,9 @@ class Show {
         });
       }
       this.countMovies(result.length);
+      return result.length;
     }
+    return 0;
   }
 
   static countMovies = (count) => {
