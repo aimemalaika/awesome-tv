@@ -1,8 +1,8 @@
 const box = document.querySelector('#box');
 
 const commentPop = () => {
-    const article = document.createElement('article');
-    articleContent = `
+  const article = document.createElement('article');
+  const articleContent = `
     <div id="parentModalComment" class="parentModalcomment">
     <div class="commentModal">
       <img src="assets/images/ishan-shah-LEvRAhapk5w-unsplash.jpg" alt="fontawesome-image">
@@ -30,8 +30,8 @@ const commentPop = () => {
   box.appendChild(article);
   const closeBtn = document.querySelector('#closeBtn');
   closeBtn.addEventListener('click', () => {
-     box.removeChild(article);
-    });
-}
+    box.removeChild(article);
+  });
+};
 
 commentPop();

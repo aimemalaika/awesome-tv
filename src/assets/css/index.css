@@ -9,7 +9,7 @@
 
 * {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
-  /* font-weight: 100; */
+  font-weight: 100;
   box-sizing: border-box;
 }
 
@@ -151,7 +151,7 @@ ul li {
 .comment-form {
   display: flex;
   flex-direction: column;
-  margin: 0 3%
+  margin: 0 3%;
 }
 
 .comment-form .name {
