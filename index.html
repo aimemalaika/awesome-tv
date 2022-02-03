@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>Movies List</title>
   <script src="https://use.fontawesome.com/75d401af0c.js"></script>
 <link rel="icon" href="favicon.ico"><script defer src="bundle.js"></script></head>
+
 <body>
   <header class="app-header">
     <div class="container">
@@ -24,10 +26,24 @@
     <h1 class="section-title">Movies</h1>
     <div class="movies-row"></div>
   </section>
+  <div class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-button">x</button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="comments-list">
+        <h2 class="comment-header">Comments</h2>
+        <ul id="comments-data"></ul>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
   <footer id="footer" class="footer">
     <p>
       &copy; 2022 Key. All Right Reserved | 🏗 by Aime && OyelakinG 💖🎉
     </p>
   </footer>
 </body>
+
 </html>
