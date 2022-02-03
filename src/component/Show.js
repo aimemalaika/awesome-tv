@@ -10,9 +10,10 @@ class Show {
       const request = await fetch(`${this.base}?page=1`, { method: 'GET' });
       const result = await request.json();
       if (result.length) {
+        const likesData = await Likes.countLikes();
         this.container.innerHTML = '';
         result.forEach((element) => {
-          this.populate(element);
+          this.populate(element, likesData);
         });
       }
       this.countMovies(result.length);
@@ -23,7 +24,14 @@ class Show {
     document.querySelector('.movies-counter').textContent = count;
   }
 
-  static populate = (movie) => {
+  static populate = (movie, likesData) => {
+    let likesNumber;
+    if (likesData.length) {
+      const thePost = likesData.filter((lik) => parseInt(lik.item_id, 10) === movie.id);
+      likesNumber = (thePost.length) ? thePost[0].likes : 0;
+    } else {
+      likesNumber = 0;
+    }
     const movieCadre = document.createElement('div');
     movieCadre.classList.add('item');
     const poster = document.createElement('a');
@@ -56,13 +64,13 @@ class Show {
     likeButton.classList.add('like-btn');
     likeButton.setAttribute('data-id', movie.id);
     if (Likes.setLiked().includes(movie.id)) {
-      likeButton.innerHTML = '<i class="fa fa-heart"></i> 0 likes';
+      likeButton.innerHTML = `<i class="fa fa-heart"></i> <i>${likesNumber}</i> likes`;
     } else {
-      likeButton.innerHTML = '<i class="fa fa-heart-o"></i> 0 likes';
+      likeButton.innerHTML = `<i class="fa fa-heart-o"></i> <i>${likesNumber}</i> likes`;
     }
-    likeButton.addEventListener('click', (e) => {
+    likeButton.addEventListener('click', () => {
       if (!Likes.setLiked().includes(movie.id)) {
-        const itemId = e.target.getAttribute('data-id');
+        const itemId = likeButton.getAttribute('data-id');
         const like = new Likes(itemId);
         Likes.postLike(like);
       }
