@@ -1,6 +1,7 @@
 import Show from '../../component/Show.js';
 import LogoImage from '../images/logo.png';
 import '../css/index.css';
+import '../css/responsive.css';
 
 (async () => {
   const logo = new Image();

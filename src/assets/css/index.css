@@ -220,7 +220,7 @@ footer p {
 
 .movies-row {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
   margin-top: 45px;
 }
@@ -428,5 +428,7 @@ footer p {
 }
 
 .time-posted {
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
