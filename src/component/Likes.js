@@ -21,6 +21,8 @@ class Likes extends Comment {
     if (request.status === 201) {
       document.querySelector(`[data-id="${like.item_id}"]`).children[0].classList.remove('fa-spinner');
       document.querySelector(`[data-id="${like.item_id}"]`).children[0].classList.add('fa-heart');
+      const likeCount = document.querySelector(`[data-id="${like.item_id}"]`).children[1];
+      likeCount.innerText = parseInt(likeCount.innerText, 10) + 1;
       this.setLiked(like.item_id);
       return 'created';
     }
@@ -34,6 +36,15 @@ class Likes extends Comment {
       window.localStorage.setItem('idsLikes', JSON.stringify(storage));
     }
     return window.localStorage.getItem('idsLikes');
+  }
+
+  static countLikes = async () => {
+    if (navigator.onLine) {
+      const request = await fetch(`${super.base}/${super.appId}/likes`, { method: 'GET' });
+      const result = await request.json();
+      return result;
+    }
+    return 0;
   }
 }
 export default Likes;
