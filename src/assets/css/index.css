@@ -142,11 +142,11 @@ body {
 }
 
 .close-button {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 500;
   background-color: transparent;
   border: none;
-  color: rgba(255, 0, 0, 0.472);
+  color: rgba(255, 0, 0, 0.71);
   cursor: pointer;
   padding-bottom: 10px;
 }
