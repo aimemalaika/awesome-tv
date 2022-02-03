@@ -22,20 +22,23 @@
       </nav>
     </div>
   </header>
-
-  <div id="comment" class="comment">
-    <h2 class="comment-header">Add comment</h2>
-    <div class="comment-form">
-      <input type="text" id="name" class="name" placeholder="your name">
-      <textarea name="message" id="message" class="message" cols="10" rows="10" placeholder="your insights"></textarea>
-      <button type="button" class="submit-btn">comment</button>
-    </div>
-  </div>
-
   <section class="movie-list">
     <h1 class="section-title">Movies</h1>
     <div class="movies-row"></div>
   </section>
+  <div class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-button">x</button>
+      </div>
+      <div class="modal-body"></div>
+      <div class="comments-list">
+        <h2 class="comment-header">Comments</h2>
+        <ul id="comments-data"></ul>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
   <footer id="footer" class="footer">
     <p>
       &copy; 2022 Key. All Right Reserved | 🏗 by Aime && OyelakinG 💖🎉

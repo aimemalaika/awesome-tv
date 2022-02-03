@@ -35,7 +35,7 @@ class Likes extends Comment {
       storage.push(id);
       window.localStorage.setItem('idsLikes', JSON.stringify(storage));
     }
-    return window.localStorage.getItem('idsLikes');
+    return (window.localStorage.getItem('idsLikes') === null) ? [] : JSON.parse(window.localStorage.getItem('idsLikes'));
   }
 
   static countLikes = async () => {
