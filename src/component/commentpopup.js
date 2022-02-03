@@ -40,4 +40,4 @@ const btnCommentPop = document.createElement('button');
 btnCommentPop.textContent = 'comments';
 btnCommentPop.addEventListener('click', () => {
   commentPop();
-})
+});
