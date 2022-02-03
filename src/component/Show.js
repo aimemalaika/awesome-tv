@@ -12,20 +12,15 @@ class Show {
 
   static commentList = document.querySelector('#comments-data');
 
+  static fullData;
+
   static getMovies = async () => {
     if (navigator.onLine) {
       const request = await fetch(`${this.base}?page=1`, { method: 'GET' });
       const result = await request.json();
       if (result.length) {
-        const likesData = await Likes.countLikes();
+        this.fullData = result;
         this.container.innerHTML = '';
-        let maxData = 0;
-        result.forEach((element) => {
-          if (maxData < 40) {
-            this.populate(element, likesData);
-          }
-          maxData += 1;
-        });
       }
       this.countMovies(result.length);
       return result.length;
