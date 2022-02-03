@@ -193,16 +193,15 @@ body {
 .modal-footer .comment .comment-form input,
 .modal-footer .comment .comment-form textarea {
   display: block;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   font-size: 1.2rem;
   line-height: 2;
   font-weight: 300;
-  color: var(#000);
+  color: #000;
   background-color: var(--white-color);
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  ;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   margin-bottom: 20px;
 }
 
@@ -355,6 +354,16 @@ footer p {
   top: 40%;
 }
 
+.submit-comment-btn {
+  position: inherit;
+  display: inherit;
+  width: 100%;
+  text-align: center;
+  background-color: var(--dark-bg);
+  border: 1px solid #f0f8ff2e;
+  padding-left: 40%;
+}
+
 .overlapButton-comment:hover,
 .overlapButton-reservation:hover,
 .submit-comment-btn:hover {
@@ -384,16 +393,6 @@ footer p {
   }
 }
 
-.submit-comment-btn {
-  position: inherit;
-  display: inherit;
-  width: 100%;
-  text-align: center;
-  background-color: var(--dark-bg);
-  border: 1px solid #f0f8ff2e;
-  padding-left: 40%;
-}
-
 .comment-header {
   color: var(--white-color);
 }
@@ -421,7 +420,7 @@ footer p {
   text-align: center;
   font-weight: 900;
   border-radius: 52%;
-  padding: 0px 10px;
+  padding: 0 10px;
   margin: auto auto auto 0;
   width: 40px;
   height: 40px;
