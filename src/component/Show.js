@@ -1,3 +1,5 @@
+import Likes from './Likes.js';
+
 class Show {
   static base = 'https://api.tvmaze.com/shows';
 
@@ -10,15 +12,28 @@ class Show {
       const request = await fetch(`${this.base}?page=1`, { method: 'GET' });
       const result = await request.json();
       if (result.length) {
+        const likesData = await Likes.countLikes();
         this.container.innerHTML = '';
         result.forEach((element) => {
-          this.populate(element);
+          this.populate(element, likesData);
         });
       }
+      this.countMovies(result.length);
     }
   }
 
-  static populate = (movie) => {
+  static countMovies = (count) => {
+    document.querySelector('.movies-counter').textContent = count;
+  }
+
+  static populate = (movie, likesData) => {
+    let likesNumber;
+    if (likesData.length) {
+      const thePost = likesData.filter((lik) => parseInt(lik.item_id, 10) === movie.id);
+      likesNumber = (thePost.length) ? thePost[0].likes : 0;
+    } else {
+      likesNumber = 0;
+    }
     const movieCadre = document.createElement('div');
     movieCadre.classList.add('item');
     const poster = document.createElement('a');
@@ -29,8 +44,10 @@ class Show {
     posterImager.src = movie.image.medium;
     const commentBtn = document.createElement('button');
     commentBtn.innerText = 'Comments';
+    commentBtn.setAttribute('data-comment-item-id', movie.id);
     commentBtn.classList.add('overlapButton-comment');
     const reservationBtn = document.createElement('button');
+    reservationBtn.setAttribute('data-reservation-item-id', movie.id);
     reservationBtn.innerText = 'reservations';
     reservationBtn.classList.add('overlapButton-reservation');
     poster.append(posterImager);
@@ -45,7 +62,23 @@ class Show {
     movieCadre.append(movieName);
     const smalInfo = document.createElement('p');
     smalInfo.classList.add('meta');
-    smalInfo.innerHTML = `${new Date(movie.premiered).getFullYear().toString()}<i class="dot"></i>${movie.runtime} min <button class="like-btn"><i class="fa fa-heart-o"></i> 0 likes</button>`;
+    const likeButton = document.createElement('button');
+    likeButton.classList.add('like-btn');
+    likeButton.setAttribute('data-id', movie.id);
+    if (Likes.setLiked().includes(movie.id)) {
+      likeButton.innerHTML = `<i class="fa fa-heart"></i> <i>${likesNumber}</i> likes`;
+    } else {
+      likeButton.innerHTML = `<i class="fa fa-heart-o"></i> <i>${likesNumber}</i> likes`;
+    }
+    likeButton.addEventListener('click', () => {
+      if (!Likes.setLiked().includes(movie.id)) {
+        const itemId = likeButton.getAttribute('data-id');
+        const like = new Likes(itemId);
+        Likes.postLike(like);
+      }
+    });
+    smalInfo.innerHTML = `${new Date(movie.premiered).getFullYear().toString()}<i class="dot"></i>${movie.runtime} min `;
+    smalInfo.append(likeButton);
     movieCadre.append(commentBtn);
     movieCadre.append(reservationBtn);
     movieCadre.append(smalInfo);
