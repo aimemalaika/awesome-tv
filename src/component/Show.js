@@ -19,8 +19,12 @@ class Show {
       if (result.length) {
         const likesData = await Likes.countLikes();
         this.container.innerHTML = '';
+        let maxData = 0;
         result.forEach((element) => {
-          this.populate(element, likesData);
+          if (maxData < 40) {
+            this.populate(element, likesData);
+          }
+          maxData += 1;
         });
       }
       this.countMovies(result.length);
@@ -129,6 +133,7 @@ class Show {
     const likes = document.createElement('p');
     likes.innerHTML = `<i class="fa fa-heart"></i> ${likesNumber} Likes`;
     const comments = document.createElement('p');
+    comments.classList.add('commentcount');
     const commentsNumber = commentsList.length;
     comments.innerHTML = `<i class="fa fa-comments-o"></i> ${commentsNumber} Comments`;
     const underImage = document.createElement('div');
@@ -236,6 +241,8 @@ class Show {
             </div>
           </li>
       `;
+        const newCount = parseInt(document.querySelector('.commentcount').textContent.split(' ')[1], 10) + 1;
+        document.querySelector('.commentcount').innerHTML = `<i class="fa fa-comments-o"></i> ${newCount} Comments`;
         userName.value = '';
         message.value = '';
       }
