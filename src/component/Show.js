@@ -3,6 +3,8 @@ class Show {
 
   static container = document.querySelector('.movies-row');
 
+  static modal = document.querySelector('.modal-body');
+
   static getMovies = async () => {
     if (navigator.onLine) {
       const request = await fetch(`${this.base}?page=1`, { method: 'GET' });
@@ -48,6 +50,24 @@ class Show {
     movieCadre.append(reservationBtn);
     movieCadre.append(smalInfo);
     this.container.append(movieCadre);
+  }
+
+  static getOneShow = async (id) => {
+    if (navigator.onLine) {
+      const request = await fetch(`${this.base}/${id}`, { method: 'GET' });
+      const result = await request.json();
+      if (result.length) {
+        this.modal.innerHTML = '';
+        console.log(result);
+        // result.forEach((element) => {
+        //   this.populate(element);
+        // });
+      }
+    }
+  }
+
+  static previewOneShow = () => {
+    // modal-body
   }
 }
 
