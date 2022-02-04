@@ -5,7 +5,7 @@ class Comment {
     this.item_id = itemId;
   }
 
-  static appId = 'DN0Of2pkUbOHCM0jDtnj';
+  static appId = '2uCUsbHdKgsRgPdkqov1';
 
   static base = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 
