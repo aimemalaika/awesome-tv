@@ -232,7 +232,7 @@ class Show {
             <p class="user-prefix">${userName.value.charAt(0)}</p>
             <div>
               <p>${message.value}</p>
-              <p class="time-posted"><span>${userName}</span><span>${dates.getDay()} - ${monthNames[dates.getMonth()]} - ${dates.getFullYear()} at ${(`0${currentHours}`).slice(-2)}:${(`0${currentMinutes}`).slice(-2)}</span></p>
+              <p class="time-posted"><span>${userName.value}</span><span>${dates.getDay()} - ${monthNames[dates.getMonth()]} - ${dates.getFullYear()} at ${(`0${currentHours}`).slice(-2)}:${(`0${currentMinutes}`).slice(-2)}</span></p>
             </div>
           </li>
       `;
