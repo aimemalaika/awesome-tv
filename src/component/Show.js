@@ -97,6 +97,7 @@ class Show {
 
   static getOneShow = async (id) => {
     if (navigator.onLine) {
+      document.querySelector('.animate-load').classList.remove('hidden');
       const request = await fetch(`${this.base}/${id}`, { method: 'GET' });
       const result = await request.json();
       if (request.status === 200) {
@@ -191,6 +192,7 @@ class Show {
       </li>
       `;
     });
+    document.querySelector('.animate-load').classList.add('hidden');
   }
 
   static addCommentForm = () => {
