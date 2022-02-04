@@ -256,6 +256,12 @@ footer p {
   background: rgba(0, 0, 0, 0.5);
 }
 
+.notification .message img {
+  height: 50px;
+  width: 60px;
+  margin: auto 10px;
+}
+
 .movies-row .item .poster img {
   width: 100%;
   min-height: 100%;
@@ -442,4 +448,29 @@ footer p {
   padding: 52% 50%;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.753);
+}
+
+.notification {
+  position: fixed;
+  width: 40%;
+  right: 2%;
+  top: 10%;
+  color: var(--white-color);
+  background-color: var(--dark-bg);
+  border-radius: 4px;
+  z-index: 20;
+}
+
+.notification .message {
+  font-weight: 700;
+  font-size: 1.1em;
+  display: flex;
+  padding: 5px 20px;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 0;
+  background-color: red;
+  transition: 300ms linear;
 }

@@ -1,6 +1,7 @@
 import Show from '../../component/Show.js';
 import Likes from '../../component/Likes.js';
 import LogoImage from '../images/logo.png';
+import Info from '../images/success.gif';
 import '../css/index.css';
 import '../css/responsive.css';
 
@@ -17,11 +18,23 @@ const infinitScroll = async () => {
 };
 
 (async () => {
+  let purcent = 0;
   const logo = new Image();
   logo.src = LogoImage;
   document.querySelector('.logo').append(logo);
+  const infoImg = new Image();
+  infoImg.src = Info;
+  document.querySelector('.message').prepend(infoImg);
   await Show.getMovies();
   infinitScroll();
+  const loaderpurcent = setInterval(() => {
+    document.querySelector('.progress-bar').style.width = `${purcent}%`;
+    if (purcent >= 100) {
+      clearInterval(loaderpurcent);
+      document.querySelector('.notification').classList.add('hidden');
+    }
+    purcent += 5;
+  }, 300);
 })();
 
 document.querySelector('.close-button').addEventListener('click', () => {
