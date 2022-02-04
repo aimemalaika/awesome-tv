@@ -75,7 +75,7 @@ class Show {
     const likeButton = document.createElement('button');
     likeButton.classList.add('like-btn');
     likeButton.setAttribute('data-id', movie.id);
-    if (Likes.setLiked().includes(movie.id)) {
+    if (Likes.setLiked().includes(movie.id.toString())) {
       likeButton.innerHTML = `<i class="fa fa-heart"></i> <i>${likesNumber}</i> likes`;
     } else {
       likeButton.innerHTML = `<i class="fa fa-heart-o"></i> <i>${likesNumber}</i> likes`;
