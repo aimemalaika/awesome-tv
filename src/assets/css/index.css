@@ -1,6 +1,476 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,500;1,700;1,900&display=swap');
 
+:root {
+  --dark-bg: #090909;
+  --light-bg: #111;
+  --white-color: #fff;
+  --blue-color: #57d2eb;
+  --transparent-dark-bg: #090909ce;
+}
+
 * {
-  font-family: 'Poppins';
-  font-size: 100;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+}
+
+.app-header {
+  background-color: var(--dark-bg);
+  height: 70px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  height: 100%;
+}
+
+.movie-list {
+  width: 95%;
+  margin: auto;
+}
+
+.movie-list .section-title {
+  color: var(--white-color);
+  font-weight: 400;
+  font-size: 2em;
+}
+
+.movie-list .section-title::before {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 4%;
+  top: 17%;
+  background: #343a40;
+}
+
+.app-header .logo {
+  width: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0;
+}
+
+.app-header .logo img {
+  height: 35px;
+  margin: auto;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: end;
+}
+
+.navigation ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 30%;
+  align-items: center;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--white-color);
+}
+
+.navigation ul li a:hover {
+  color: var(--blue-color);
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--transparent-dark-bg);
+  top: 0;
+  z-index: 100;
+  overflow-y: scroll;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  width: 70%;
+  background-color: var(--light-bg);
+  margin: 10px auto;
+  padding: 10px 20px;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-bottom: 1px solid var(--white-color);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: var(--white-color);
+  font-size: 15px;
+  border-bottom: 1px solid var(--white-color);
+}
+
+.comments-list {
+  border-bottom: 1px solid var(--white-color);
+}
+
+.close-button {
+  font-size: 25px;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 0, 0, 0.71);
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+
+.close-button:hover {
+  color: red;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.description-data {
+  padding: 0 20px;
+}
+
+.movie-name-title {
+  margin: 0;
+}
+
+.underImage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.underImage i {
+  color: red;
+}
+
+.modal-footer .comment {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.modal-footer .comment .comment-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal-footer .comment .comment-form input,
+.modal-footer .comment .comment-form textarea {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.2rem;
+  line-height: 2;
+  font-weight: 300;
+  color: #000;
+  background-color: var(--white-color);
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin-bottom: 20px;
+}
+
+footer {
+  display: block;
+  border: 1px solid;
+  background: var(--dark-bg);
+}
+
+footer p {
+  width: 95%;
+  margin: auto;
+  color: var(--white-color);
+  padding: 2% 0;
+}
+
+.movies-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 45px;
+}
+
+.movies-row .item {
+  position: relative;
+}
+
+.movies-row .item .poster {
+  width: 100%;
+  padding-bottom: 145%;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+  background: #212529;
+}
+
+.movies-row .item .poster::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.movies-row .item:hover .poster::after {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.notification .message img {
+  height: 50px;
+  width: 60px;
+  margin: auto 10px;
+}
+
+.movies-row .item .poster img {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+}
+
+.movies-row .item .poster img[src] {
+  visibility: visible;
+}
+
+.movies-row .item h3 {
+  font-size: 1em;
+  font-weight: 500;
+  display: grid;
+}
+
+.movies-row .item .title {
+  color: var(--white-color);
+  font-size: 1em;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.movies-row .item .meta {
+  font-size: 0.9em !important;
+  font-weight: 300;
+  height: 50px;
+  display: block;
+  overflow: hidden;
+  color: #959595;
+}
+
+.movies-row .item .meta .dot {
+  width: 3px;
+  height: 3px;
+  vertical-align: 2px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #d5d5d5;
+  content: "";
+  margin: 0 5px;
+}
+
+.movies-row .item .meta .like-btn {
+  font-style: normal;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-size: 1em;
+  float: right;
+  border: none;
+  background-color: transparent;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.movies-row .item .meta .like-btn i {
+  color: red;
+}
+
+.movies-counter {
+  text-align: center;
+  color: var(--white-color);
+  background-color: red;
+  font-weight: 500;
+  padding: 6px 4px;
+  border-radius: 50%;
+  font-size: 13px;
+}
+
+.overlapButton-comment,
+.overlapButton-reservation,
+.submit-comment-btn {
+  position: absolute;
+  top: 28%;
+  z-index: 10;
+  width: 70%;
+  left: 15%;
+  border: none;
+  background-color: var(--light-bg);
+  color: var(--white-color);
+  font-size: 1em;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 5px 0;
+  display: none;
+  border-radius: 5px;
+}
+
+.overlapButton-reservation {
+  top: 40%;
+}
+
+.submit-comment-btn {
+  position: inherit;
+  display: inherit;
+  width: 100%;
+  text-align: center;
+  background-color: var(--dark-bg);
+  border: 1px solid #f0f8ff2e;
+  padding-left: 40%;
+}
+
+.overlapButton-comment:hover,
+.overlapButton-reservation:hover,
+.submit-comment-btn:hover {
+  background-color: var(--dark-bg);
+  color: var(--blue-color);
+}
+
+.movies-row .item:hover .overlapButton-comment,
+.movies-row .item:hover .overlapButton-reservation {
+  display: block;
+}
+
+.fa-spinner {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.comment-header {
+  color: var(--white-color);
+}
+
+#comments-data {
+  padding: 0;
+  list-style-type: none;
+}
+
+.data-items {
+  display: grid;
+  grid-template-columns: 5% 90%;
+  gap: 15px;
+  color: var(--white-color);
+  border: 1px solid #242424;
+  border-radius: 4px;
+  margin-top: 7px;
+  padding: 5px;
+}
+
+.user-prefix {
+  color: var(--dark-bg);
+  background-color: var(--white-color);
+  font-size: 2em;
+  text-align: center;
+  font-weight: 900;
+  border-radius: 52%;
+  padding: 0 10px;
+  margin: auto auto auto 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.time-posted {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.animate-load {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  font-size: 5em;
+  color: red;
+  padding: 50% 50%;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.753);
+}
+
+.notification {
+  position: fixed;
+  width: 40%;
+  right: 2%;
+  top: 10%;
+  color: var(--white-color);
+  background-color: var(--dark-bg);
+  border-radius: 4px;
+  z-index: 20;
+}
+
+.notification .message {
+  font-weight: 700;
+  font-size: 1.1em;
+  display: flex;
+  padding: 5px 20px;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 0;
+  background-color: red;
+  transition: 300ms linear;
 }

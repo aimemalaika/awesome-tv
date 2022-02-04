@@ -2,12 +2,15 @@
 # LEADBOARD APP
 > Awesome TV is the First and Original streaming entertainment network for Global Africa from United States of America (USA).
 
-![screenshot](./src/assets/images/Home.png)
+![image](./src/assets/images/ScreenShot.png)
 ## Built With
 - HTML & CSS & JavaScript
 - Html, Css & JavaScript linters
 ## Live Demo
 > ###### [LIVE DEMO LINK](https://aimemalaika.github.io/awesome-tv/)
+
+## Video Demo
+> ###### [VIDEO DEMO LINK](https://www.loom.com/share/7c667355a904437b80cff2848cc4d39e)
 ##### Getting Started
 - clone the repository by running\
     `git clone https://github.com/aimemalaika/awesome-tv.git`

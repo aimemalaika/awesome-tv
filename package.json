@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/aimemalaika/awesome-tv/issues"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "homepage": "https://github.com/aimemalaika/awesome-tv#readme",
   "devDependencies": {
     "@lhci/cli": "^0.8.2",
