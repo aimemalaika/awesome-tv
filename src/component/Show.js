@@ -12,16 +12,15 @@ class Show {
 
   static commentList = document.querySelector('#comments-data');
 
+  static fullData;
+
   static getMovies = async () => {
     if (navigator.onLine) {
       const request = await fetch(`${this.base}?page=1`, { method: 'GET' });
       const result = await request.json();
       if (result.length) {
-        const likesData = await Likes.countLikes();
+        this.fullData = result;
         this.container.innerHTML = '';
-        result.forEach((element) => {
-          this.populate(element, likesData);
-        });
       }
       this.countMovies(result.length);
       return result.length;
@@ -129,6 +128,7 @@ class Show {
     const likes = document.createElement('p');
     likes.innerHTML = `<i class="fa fa-heart"></i> ${likesNumber} Likes`;
     const comments = document.createElement('p');
+    comments.classList.add('commentcount');
     const commentsNumber = commentsList.length;
     comments.innerHTML = `<i class="fa fa-comments-o"></i> ${commentsNumber} Comments`;
     const underImage = document.createElement('div');
@@ -186,7 +186,7 @@ class Show {
         <p class="user-prefix">${com.username.charAt(0)}</p>
         <div>
           <p>${com.comment}</p>
-          <p class="time-posted">${dates.getDay()} - ${monthNames[dates.getMonth()]} - ${dates.getFullYear()} at ${(`0${currentHours}`).slice(-2)}:${(`0${currentMinutes}`).slice(-2)}</p>
+          <p class="time-posted"><span>${com.username}</span> <span>${dates.getDay()} - ${monthNames[dates.getMonth()]} - ${dates.getFullYear()} at ${(`0${currentHours}`).slice(-2)}:${(`0${currentMinutes}`).slice(-2)}</span></p>
         </div>
       </li>
       `;
@@ -232,10 +232,12 @@ class Show {
             <p class="user-prefix">${userName.value.charAt(0)}</p>
             <div>
               <p>${message.value}</p>
-              <p class="time-posted">${dates.getDay()} - ${monthNames[dates.getMonth()]} - ${dates.getFullYear()} at ${(`0${currentHours}`).slice(-2)}:${(`0${currentMinutes}`).slice(-2)}</p>
+              <p class="time-posted"><span>${userName}</span><span>${dates.getDay()} - ${monthNames[dates.getMonth()]} - ${dates.getFullYear()} at ${(`0${currentHours}`).slice(-2)}:${(`0${currentMinutes}`).slice(-2)}</span></p>
             </div>
           </li>
       `;
+        const newCount = parseInt(document.querySelector('.commentcount').textContent.split(' ')[1], 10) + 1;
+        document.querySelector('.commentcount').innerHTML = `<i class="fa fa-comments-o"></i> ${newCount} Comments`;
         userName.value = '';
         message.value = '';
       }
