@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
-# LEADBOARD APP
+# Awesome TV
 > Awesome TV is the First and Original streaming entertainment network for Global Africa from United States of America (USA).
 
 ![image](./src/assets/images/ScreenShot.png)
